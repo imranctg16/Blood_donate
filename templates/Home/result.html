@@ -1,0 +1,27 @@
+{% extends 'Home/base.html' %}
+
+{% block body_block %}
+    found {{ all.count }} result
+
+    Searched For {{ division }} and {{ blood_group }}
+
+    {% if all %}
+
+            {% for obj in all %}
+            <div class="card" style="width: 20rem;">
+                      <img class="card-img-top" src="{{ obj.image.url}}" alt="Card image cap" width="500px">
+                      <div class="card-block">
+                        <h4 class="card-title">{{ obj.user.username }}</h4>
+                        <p class="card-text">{{ obj.phone_number }}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+            </div>
+             <hr>
+            {% endfor %}
+            <a href="{% url 'search' %}">Search again ? !</a>
+
+    {% else %}
+            <h3>Sorry, currently No donor available </h3>
+            <a href="{% url 'search' %}">Search again ? !</a>
+    {% endif %}
+{% endblock %}
