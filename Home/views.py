@@ -38,7 +38,7 @@ def search(request):
             all=data.objects.filter(division__name=division,blood_group__group=blood_group)
             #all=data.objects.all
             # probably better to use a redirect here.
-            context_dict = {'all':all,'division':division}
+            context_dict = {'all':all,'division':division,'blood_group':blood_group}
             return render(request,'Home/result.html', context_dict)
         else:
             print (form.errors)
