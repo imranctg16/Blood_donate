@@ -3,12 +3,11 @@
 {% block body_block %}
 
     {% if user.is_authenticated %}
+        <a href="{% url 'search' %}">Search For Donor </a>
 
-        <a href="{% url 'join' %}">Join as a Donor !</a>
-        <hr>
-        <a href="{% url 'search' %}">Search For Required Blood !</a>
+        <h2>Check out Template>index.html To ADD/customize picture ,some content etc.etc.</h2>
 
     {% else %}
-        <h3>Please Register to Use Blood_donate.org </h3>
+        <h3>Please <a href="{% url 'registration_register' %}">Register</a> OR <a href="{% url 'auth_login' %}">Login</a> to Use Blood_Corner</h3>
     {% endif %}
 {% endblock %}

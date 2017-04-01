@@ -23,11 +23,10 @@ class data(models.Model):
     user=models.ForeignKey(User)
     division=models.ForeignKey(Division)
     blood_group=models.ForeignKey(Blood_group)
-    phone_number=models.CharField(max_length=10)
-    image=models.ImageField(upload_to=to_,null=True ,blank=True)
+    phone_number=models.CharField(max_length=11)
+    image=models.ImageField(upload_to=to_,null=False ,blank=True)
     def __str__(self):
         return  self.user.username
-
 
 #user class
 class UserProfile(models.Model):

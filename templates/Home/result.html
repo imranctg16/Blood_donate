@@ -7,21 +7,27 @@
 
     {% if all %}
 
-            {% for obj in all %}
+        {% for obj in all %}
             <div class="card" style="width: 20rem;">
-                      <img class="card-img-top" src="{{ obj.image.url}}" alt="Card image cap" width="500px">
-                      <div class="card-block">
-                        <h4 class="card-title">{{ obj.user.username }}</h4>
-                        <p class="card-text">{{ obj.phone_number }}</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                      </div>
-            </div>
-             <hr>
-            {% endfor %}
-            <a href="{% url 'search' %}">Search again ? !</a>
 
+
+                {% if obj.image %}
+                    <img class="card-img-top" src="{{ obj.image.url }}" alt="Card image cap" width="500px">
+                {% else %}
+                    <h2>No image Available For the User</h2>
+                {% endif %}
+                <div class="card-block">
+                    <h4 class="card-title">Name: {{ obj.user.username }}</h4>
+                    <p class="card-text">Contact Number: {{ obj.phone_number }}</p>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
     {% else %}
-            <h3>Sorry, currently No donor available </h3>
-            <a href="{% url 'search' %}">Search again ? !</a>
+        <h3>Sorry, currently No donor available </h3>
     {% endif %}
+
+
+    <a class="btn" href="{% url 'search' %}">Search again ?</a>
+
 {% endblock %}
